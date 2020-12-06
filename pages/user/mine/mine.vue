@@ -144,7 +144,6 @@
 			 * navigator标签现在默认没有转场动画，所以用view
 			 */
 			navTo(url){
-				debugger
 				//如果没有登陆，跳转到登陆界面
 				// if(!this.hasLogin){
 				// 	url = '/pages/login/login';

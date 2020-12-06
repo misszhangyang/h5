@@ -78,7 +78,6 @@
 				this.$api.msg('去注册');
 			},
 			toForget(){
-				debugger
 				// this.$api.msg('去忘记密码页面');
 				uni.navigateTo({
 					url: '/pages/user/forget/forget'

@@ -87,7 +87,6 @@ import {
 				this.$api.msg('去重置');
 			},
 			toForget(){
-				debugger
 				// this.$api.msg('去忘记密码页面');
 				uni.navigateTo({
 					url: '/pages/index/index'
