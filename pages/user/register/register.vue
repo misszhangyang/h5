@@ -1,20 +1,16 @@
 <template>
 	<view class="mingxi">
-		<cu-custom bgColor="bg-gradual-blue" :isBack="true"><block slot="content">佣金明细</block></cu-custom>
-		<view style="display: flex;justify-content: flex-end;margin-bottom: 10px;">
-			<view class="head_btn" @click="jump_cash">去提现</view>
-		</view>
+		<cu-custom bgColor="bg-gradual-blue" :isBack="true"><block slot="content">选择注册方式</block></cu-custom>
 		<view class="ticheng">
 			<block v-for="(item,index) of list" :key="index">
 				<li class="tc" @click="jump(item.id)">
 					<view class="tc_l">
-						<span>代理提成-{{item.card.bank_num.substr(item.card.bank_num.length-4)}}</span><br/>{{item.create_time}}
+						<span>在线预约-{{item.card.bank_num.substr(item.card.bank_num.length-4)}}</span><br/>
+						<span class="smallText">预约客户经理上门服务，一站搞定POS、条码等多样化 收款需求！{{item.create_time}}</span>
 					</view>
-					<view class="tc_2">
-						+{{item.money}}<br/>
-						<span v-if="item.status==0">提现中</span>
-						<span v-if="item.status==1">已完成</span>
-					</view>
+					 <view class="tc_2">
+						 <img src="@/imgs/5.png" style="float: right;margin-right: 30%;">
+					</view> 
 				</li>
 			</block>
 		</view>
@@ -44,8 +40,12 @@
 				})
 			},
 			jump(id){
+				//申请提现成功页面
+				// uni.navigateTo({
+				// 	url:'/pages/user/fenxiao/success/success?id='+id
+				// })
 				uni.navigateTo({
-					url:'/pages/user/fenxiao/success/success?id='+id
+					url:'/pages/user/register/register1'
 				})
 			},
 			change(e){
@@ -69,10 +69,18 @@
 	.sy_l span{font-weight: bold;}
 	.ticheng li:nth-of-type(odd){ background-color: #EEEEEE;} 
 	.ticheng li:nth-of-type(even){background-color: #fff;} 
-	.tc{display: flex;justify-content: space-between;padding: 10px;line-height: 25px;font-size: 14px;}
+	.tc{
+		width: 80%;
+		margin: 10px auto;
+		height: 90%;
+		display: flex;justify-content: space-between;padding: 10px;line-height: 25px;font-size: 14px;}
 	.tc_l{color: #9A9A9A;}
 	.tc_l span{font-size: 14px;font-weight: bold;color: #000;}
 	.tc_2{color: #E1461D;}
 	.tc_2 span{color: #9A9A9A;}
+	.smallText{
+		color: #626262 !important;
+		font-size: 8rpx !important;
+	}
 }
 </style>

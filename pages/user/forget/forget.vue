@@ -9,9 +9,23 @@
 			<view class="welcome">
 				忘记密码
 			</view>
+			<view class="cu-bar margin-top bg-white">
+				<view class="action">
+					<radio-group @change="SetBorderSize">
+						<label class="margin-left-sm">
+							<radio class="radio yellow" value="" checked></radio>
+							<text class="margin-left-sm">员工</text>
+						</label>
+						<label class="margin-left-sm">
+							<radio class="radio yellow" value="s"></radio>
+							<text class="margin-left-sm">店主</text>
+						</label>
+					</radio-group>
+				</view>
+			</view>
 			<view class="input-content">
 				<view class="input-item">
-					<text class="tit">手机号/商户号</text>
+					<text class="tit">手机号/商户号<span style="color: red;">*</span></text>
 					<input 
 						type="number" 
 						:value="mobile" 
@@ -22,7 +36,7 @@
 					/>
 				</view>
 				<view class="input-item">
-					<text class="tit">新密码</text>
+					<text class="tit">新密码<span style="color: red;">*</span></text>
 					<input 
 						type="mobile" 
 						value="" 
@@ -308,5 +322,10 @@ page{
 			color: $font-color-spec;
 			margin-left: 10upx;
 		}
+	}
+	.action{
+		margin: 0 auto !important;
+		margin-bottom: 5% !important;
+		margin-top: -10% !important
 	}
 </style>

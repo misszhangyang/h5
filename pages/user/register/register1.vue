@@ -5,66 +5,94 @@
 		<view class="right-top-sign"></view>
 		<!-- 设置白色背景防止软键盘把下部绝对定位元素顶上来盖住输入框等 -->
 		<view class="wrapper">
-			<view class="left-top-sign">LOGIN</view>
+			<view class="left-top-sign">FORGET</view>
 			<view class="welcome">
-				移动商服平台
+				在线预约
 			</view>
-			<view class="cu-bar margin-top bg-white">
+			<!-- <view class="cu-bar margin-top bg-white">
 				<view class="action">
 					<radio-group @change="SetBorderSize">
 						<label class="margin-left-sm">
-							<radio class="radio" value="3" checked></radio>
-							<text class="margin-left-sm">店员登陆</text>
+							<radio class="radio yellow" value="" checked></radio>
+							<text class="margin-left-sm">员工</text>
 						</label>
 						<label class="margin-left-sm">
-							<radio class="radio" value="s"></radio>
-							<text class="margin-left-sm">店主登陆</text>
+							<radio class="radio yellow" value="s"></radio>
+							<text class="margin-left-sm">店主</text>
 						</label>
 					</radio-group>
 				</view>
-			</view>
+			</view> -->
 			<view class="input-content">
 				<view class="input-item">
-					<text class="tit">手机号/商户号<span style="color: red;">*</span></text>
+					<text class="tit">姓名<span style="color: red;">*</span></text>
 					<input 
 						type="number" 
 						:value="mobile" 
-						placeholder="请输入手机号/商户号"
+						placeholder="请输入姓名"
 						maxlength="11"
 						data-key="mobile"
 						@input="inputChange"
 					/>
 				</view>
 				<view class="input-item">
-					<text class="tit">密码<span style="color: red;">*</span></text>
+					<text class="tit">地址<span style="color: red;">*</span></text>
+					<address-picker  @change="change">{{address}}</address-picker>
+					<!-- <input class="address-input"><address-picker  @change="change">{{address}}</address-picker></input> -->
+				</view>
+				<view class="input-item">
+					<text class="tit">详细地址<span style="color: red;">*</span></text>
 					<input 
 						type="mobile" 
 						value="" 
-						placeholder="8-18位不含特殊字符的数字、字母组合"
+						placeholder-class="input-empty"
+						maxlength="20"
+						password 
+						placeholder="请输入详细地址"
+						data-key="password"
+						@input="inputChange"
+						@confirm="toLogin"
+						style="width: 100%;"
+					/>
+				</view>
+				<view class="input-item">
+					<text class="tit">详细地址<span style="color: red;">*</span></text>
+					<input 
+						type="mobile" 
+						value="" 
+						placeholder-class="input-empty"
+						maxlength="20"
+						password 
+						placeholder="请输入详细地址"
+						data-key="password"
+						@input="inputChange"
+						@confirm="toLogin"
+						style="width: 100%;"
+					/>
+				</view>
+				<view class="input-item">
+					<text class="tit">推荐人编号</text>
+					<input 
+						type="mobile" 
+						value="" 
 						placeholder-class="input-empty"
 						maxlength="20"
 						password 
 						data-key="password"
 						@input="inputChange"
 						@confirm="toLogin"
+						style="width: 100%;"
 					/>
 				</view>
 			</view>
-			<button class="confirm-btn" @click="toLogin" :disabled="logining">登录</button>
-			<button class="confirm-btn1" @click="toRegist" :disabled="logining">注册</button>
-			<view class="forget-section">
-				<text @click="toForget">忘记密码?</text>
-			</view>
+			<!-- <button class="check-btn" @click="toReset" :disabled="cheaking">获取验证码</button> -->
+			<button class="confirm-btn" @click="toReset" :disabled="logining">提交预约</button>
 		</view>
-		<!-- <view class="register-section">
-			还没有账号?
-			<text @click="toRegist">马上注册</text>
-		</view> -->
 	</view>
 </template>
 
 <script>
-	import {  
+import {  
         pmapMutations, mapMutations
     } from 'vuex';
 	
@@ -74,7 +102,9 @@
 				mobile: '',
 				password: '',
 				logining: false,
-				status: 'login'
+				status: 'login',
+				cheaking: true,
+				address: '请选择地址'
 			}
 		},
 		onLoad(){
@@ -89,22 +119,18 @@
 			navBack(){
 				uni.navigateBack();
 			},
-			toRegist(){
-				uni.navigateTo({
-					url: '/pages/user/register/register'
-				}) 
+			toReset(){
+				this.$api.msg('去重置');
 			},
 			toForget(){
 				// this.$api.msg('去忘记密码页面');
 				uni.navigateTo({
-					url: '/pages/user/forget/forget'
+					url: '/pages/index/index'
 				})  
 			},
-			SetBorderSize(e){
-				debugger
-				// let dom = uni.createSelectorQuery().in(this).select(".radio")
-				// this.$api.$(".radio").css({"background":"red"})
-				alert("已经切换" + e.detail.value)
+			change(data) {
+				this.address = data.data.join('')
+				console.log(data.data.join(''))
 			},
 			async toLogin(){
 				this.logining = true;
@@ -124,12 +150,8 @@
 				};
 				const result = await this.$api.json.userInfo;
 				if(result.status === 1){
-					uni.switchTab({
-						url: '/pages/user/reseller/reseller'
-					})  
-					this.logining = false;
-					// this.login(result.data);
-                    // uni.navigateBack();  
+					this.login(result.data);
+                    uni.navigateBack();  
 				}else{
 					this.$api.msg(result.msg);
 					this.logining = false;
@@ -139,9 +161,8 @@
 
 	}
 </script>
-
 <style lang='scss'>
-	page{
+page{
 		background: #fff;
 	}
 	.container{
@@ -226,7 +247,7 @@
 		background:$page-color-light;
 		height: 120upx;
 		border-radius: 4px;
-		margin-bottom: 50upx;
+		/* margin-bottom: 50upx; */
 		&:last-child{
 			margin-bottom: 0;
 		}
@@ -249,14 +270,66 @@
 			background: #E8F0FE;
 		}
 	}
+	
+	.input-check-item{
+		display:flex;
+		flex-direction: column;
+		align-items:flex-start;
+		justify-content: center;
+		padding: 0 30upx;
+		background:$page-color-light;
+		height: 120upx;
+		border-radius: 4px;
+		margin-bottom: 50upx;
+		&:last-child{
+			margin-bottom: 0;
+		}
+		.tit{
+			height: 50upx;
+			line-height: 56upx;
+			font-size: $font-sm+2upx;
+			color: $font-color-base;
+		}
+		input{
+			height: 60upx;
+			font-size: $font-base + 2upx;
+			color: $font-color-dark;
+			width: 100%;
+		}	
+	}
+	
+	.address-input{
+		height: 0upx;
+		font-size: $font-base + 2upx;
+		color: $font-color-dark;
+		width: 100%;
+	}
+	
+	.check-btn{
+		margin-left: 2%;
+		width: 25%;
+		height: 33px;
+		line-height: 33upx;
+		margin-top: -9%;
+		margin-right: 11%;
+		float: right;
+		background: #1cbbb4  !important;
+		color: #fff !important;
+		font-size: 10px;
+		padding-top: 16rpx;
+		/* &:after{
+			border-radius: 100px;
+		} */
+	}
 
 	.confirm-btn{
 		margin-left: 9%;
-		width: 630upx;
+		width: 600upx;
 		height: 76upx;
 		line-height: 76upx;
 		border-radius: 50px;
 		margin-top: 70upx;
+		margin: 70upx auto;
 		background: $uni-color-primary;
 		color: #fff;
 		font-size: $font-lg;
@@ -264,34 +337,6 @@
 			border-radius: 100px;
 		}
 	}
-	
-	.confirm-btn1{
-		margin-left: 9%;
-		width: 630upx;
-		height: 76upx;
-		line-height: 76upx;
-		margin-top: 0.5rem;
-		background: #FFFFFF;
-		/* background: $uni-color-primary; */
-		color: #1cbbb4 !important;
-		border-color: #1cbbb4;
-		font-size: $font-lg;
-		&:after{
-			border-radius: 100px;
-		}
-	}
-	
-	.action{
-		margin: 0 auto !important;
-		margin-bottom: 5% !important;
-		margin-top: -10% !important
-	}
-	
-	.color{
-		/* background-color: #1cbbb4; */
-		border-color: #1cbbb4 !important
-	} 
-	
 	.forget-section{
 		font-size: $font-sm+2upx;
 		color: $font-color-spec;
@@ -310,5 +355,10 @@
 			color: $font-color-spec;
 			margin-left: 10upx;
 		}
+	}
+	.action{
+		margin: 0 auto !important;
+		margin-bottom: 5% !important;
+		margin-top: -10% !important
 	}
 </style>

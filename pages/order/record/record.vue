@@ -1,5 +1,6 @@
 <template>
 	<view class="member">
+		<cu-custom bgColor="bg-gradual-blue" :isBack="true"><block slot="content">消息通知</block></cu-custom>
 		<view class="head">
 			<view class="head-l">
 				<img src="@/imgs/8.jpg"></img>

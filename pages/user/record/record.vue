@@ -1,5 +1,6 @@
 <template>
 	<view class="record">
+		<cu-custom bgColor="bg-gradual-blue" :isBack="true"><block slot="content">详情查询</block></cu-custom>
 		<view class="head">
 			<view class="head_l">
 				<view class="head_l_1">余额（元）</view>
@@ -44,7 +45,7 @@
 
 <style lang="scss">
 .record{font-size: 14px;
-	.head{background-color: #FF4D4D;padding:20px 10px;display: flex;justify-content: space-between;
+	.head{background-color: #8799a3;padding:20px 10px;display: flex;justify-content: space-between;margin-top: 45px;
 		.head_l{color: #fff;
 			.head_l_2{font-size: 22px;padding-top: 10px;}
 		}

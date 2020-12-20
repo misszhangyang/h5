@@ -1,5 +1,6 @@
 <template>
 	<view class="sort">
+		<cu-custom bgColor="bg-gradual-blue" :isBack="true"><block slot="content">推广排名</block></cu-custom>
 		<view class="head">
 			<view class="head_tit">分销排行榜</view>
 			<view>已赚佣金:1000</view>当前排名：111名
@@ -35,7 +36,7 @@
 
 <style lang="less">
 .sort{
-	.head{background-color: #E0451D;color: #fff;padding: 40px 10px 30px;line-height: 20px;
+	.head{background-color: #8799a3;color: #fff;padding: 40px 10px 30px;line-height: 20px;margin-top: 45px;
 		.head_tit{font-size: 24px;padding-bottom: 20px;}
 	}
 	.head span{font-size: 30px;padding: 0 5px;}

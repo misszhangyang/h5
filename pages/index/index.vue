@@ -192,7 +192,8 @@
 			height:50px;
 		}
 		.head {
-			background:  linear-gradient(to bottom, #52c693, #27a26c);
+			background:  #29b105;
+			// linear-gradient(to bottom, #52c693, #27a26c);
 			text-align: center;
 			padding: 20px 0 10px;
 			color: #fff;

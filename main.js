@@ -3,8 +3,14 @@ import App from './App'
 import Vuex from 'vuex'
 import './assets/style/border.css'
 import './assets/style/main.css'
+import $ from './assets/style/jquery.js'
 import http from './common/axios.js'  
 import json from './json2' //测试用数据
+import cuCustom from './colorui/components/cu-custom.vue'  //菜单栏头部组件
+import addressPicker from './colorui/components/address-picker.vue'  //地址选择组件
+
+Vue.component('cu-custom',cuCustom)
+Vue.component('address-picker',addressPicker)
 
 Vue.use(Vuex)
 
@@ -23,7 +29,7 @@ const msg = (title,  icon='none',duration=2000, mask=false)=>{
 		icon
 	});
 } 
-Vue.prototype.$api = {msg, json, http};  
+Vue.prototype.$api = {msg, json, http,$};  
 
 const app = new Vue({
     ...App

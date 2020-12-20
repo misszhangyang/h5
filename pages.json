@@ -68,7 +68,9 @@
         }
         ,{
             "path" : "pages/user/mingxi/mingxi",
-            "style" : {}
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
         }
         ,{
             "path" : "pages/kucun/kucun",
@@ -136,11 +138,15 @@
         }
         ,{
             "path" : "pages/user/record/record",
-            "style" : {}
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
         }
         ,{
             "path" : "pages/user/sort/sort",
-            "style" : {}
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
         }
         ,{
             "path" : "pages/guide/guide",
@@ -265,6 +271,31 @@
 					"animationType": "slide-in-bottom"
 				}
 			}
+        }
+        ,{
+            "path" : "pages/user/notice/text",
+            "style" : {
+				// "app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "components/cu-custom/cu-custom",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/user/register/register",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/user/register/register1",
+            "style" : {
+				// #去掉页面顶部导航栏
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "components/address-picker/address-picker",
+            "style" : {}
         }
     ],
 	"globalStyle": {
