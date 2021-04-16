@@ -54,16 +54,13 @@
     "quickapp" : {},
     /* 快应用特有相关 */
     "mp-weixin" : {
-        "appid" : "",
+        "appid" : "wx33a93b64ad0f3cad",
         "setting" : {
-            "urlCheck" : false
+            "urlCheck" : false,
+            "minified" : true
         },
         "usingComponents" : true,
-        "permission" : {
-            "scope.userLocation" : {
-                "desc" : "位置授权"
-            }
-        }
+        "permission" : {}
     },
     "h5" : {
         "router" : {
@@ -71,7 +68,7 @@
         },
         "domain" : "106.13.108.254",
         "devServer" : {
-            "https" : true
+            "https" : false
         }
     }
 }

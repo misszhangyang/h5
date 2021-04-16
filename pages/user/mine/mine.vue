@@ -1,112 +1,80 @@
 <template>  
-    <view class="container">  
-		<view class="user-section">
-			<image class="bg" src="/static/user-bg.jpg"></image>
-			<view class="user-info-box">
-				<view class="portrait-box">
-					<image class="portrait" src="/static/missing-face.png"></image>
+    <view class="reseller">  
+	      <!-- <view class="top"  style="width: 100%;background: #09BB07;">
+			   <image class="top-img"src="../../../imgs/my_bg1_slices/my_bg1@2x.png"></image>
+				<view style="width: 100%;color: #FFFFFF;text-align: center;font-size: 18px;padding-top: 2%;">
+					我 的
+				</view> 
+				<view>
+					 <img src="@/imgs/8.jpg" style="margin-left: 4%;margin-top: 6%;float: left;height: 80px;width: 80px;">
 				</view>
-				<view class="info-box">
-					<view class="username">游客</view>
+				<view class="head-text">
+					<view class="name">我是哈哈哈</view>
+					<view class="address">上海市徐汇区</view>
 				</view>
-			</view>
-			<!-- <view class="vip-card-box"> -->
-				<!-- <image class="card-bg" src="/static/vip-card-bg.png" mode=""></image>
-				<view class="b-btn">
-					立即开通
-				</view> -->
-				<!-- <view class="tit">
-					<text class="yticon icon-iLinkapp-"></text>
-					DCloud会员
-				</view> -->
-				<!-- <text class="e-m">DCloud Union</text>
-				<text class="e-b">开通会员开发无bug 一测就上线</text> -->
-			<!-- </view> -->
-		</view>
-		
-		<view 
-			class="cover-container"
-			:style="[{
-				transform: coverTransform,
-				transition: coverTransition
-			}]"
-			@touchstart="coverTouchstart"
-			@touchmove="coverTouchmove"
-			@touchend="coverTouchend"
-		>
-			<image class="arc" src="/static/arc.png"></image>
-			
-			<view class="tj-sction">
-				<view class="tj-item">
-					<text class="num">128.8</text>
-					<text>余额</text>
+		   </view> -->
+		   <view class="top">
+		    	<image class="top-img"src="../../../imgs/reseller.png"></image>
+				<view class="uni-flex uni-column">
+					<view  style="width: 100%;height:35%;margin: 0 auto;">
+						 <view class="title-head">
+							我 的
+						 </view>
+					 </view>
 				</view>
-				<view class="tj-item">
-					<text class="num">0</text>
-					<text>优惠券</text>
+				<view>
+					<view class="middle-top">
+						<view>
+							 <img src="@/imgs/8.jpg" style="margin-left: 4%;margin-top: 6%;float: left;height: 70px;width: 70px;">
+						</view>
+						<view class="head-text">
+							<view class="name">阮微</view>
+							<view class="address">上海市徐汇区</view>
+						</view>
+					</view>
 				</view>
-				<view class="tj-item">
-					<text class="num">20</text>
-					<text>积分</text>
+		   </view>
+			<view class="bottom">	
+				<view class="u-m-t-20">
+					<u-cell-group>
+						<u-cell-item icon="account" title="商户类型"><span>一般商户</span></u-cell-item>
+					</u-cell-group>
 				</view>
-			</view>
-			<!-- 订单 -->
-			<!-- <view class="order-section">
-				<view class="order-item" @click="navTo('/pages/order/order?state=0')" hover-class="common-hover"  :hover-stay-time="50">
-					<text class="yticon icon-shouye"></text>
-					<text>全部订单</text>
+				<view class="BH-TOP"></view>
+				<view class="u-m-t-20">
+					<u-cell-group>
+						<u-cell-item @click="click" index="/pages/user/loan/loan" class="item"  icon="rmb-circle" title="我的贷款"></u-cell-item>
+						<u-cell-item @click="click" index="/pages/user/manage/manage" class="item"  icon="red-packet" title="我的理财"></u-cell-item>
+					</u-cell-group>
 				</view>
-				<view class="order-item" @click="navTo('/pages/order/order?state=1')"  hover-class="common-hover" :hover-stay-time="50">
-					<text class="yticon icon-daifukuan"></text>
-					<text>待付款</text>
+				<view class="BH-TOP"></view>
+				<view class="u-m-t-20">
+					<u-cell-group>
+						<u-cell-item @click="click" index="/pages/user/password/password" class="item" icon="lock" title="登陆密码"></u-cell-item>
+						<u-cell-item @click="click" index="/pages/user/password/returnPassword" class="item" icon="lock-fill" title="退款密码"></u-cell-item>
+						<u-cell-item  class="item" icon="moments" title="我的店铺分享"></u-cell-item>
+						<u-cell-item  class="item" icon="star" title="我的电子协议"></u-cell-item>
+						<u-cell-item  class="item" icon="heart" title="我的静态聚合二维码"></u-cell-item>
+					</u-cell-group>
 				</view>
-				<view class="order-item" @click="navTo('/pages/order/order?state=2')" hover-class="common-hover"  :hover-stay-time="50">
-					<text class="yticon icon-yishouhuo"></text>
-					<text>待收货</text>
+				<view class="BH-TOP"></view>
+				<view class="u-m-t-20">
+					<u-cell-group>
+						<u-cell-item  icon="setting" title="设置"></u-cell-item>
+					</u-cell-group>
 				</view>
-				<view class="order-item" @click="navTo('/pages/order/order?state=4')" hover-class="common-hover"  :hover-stay-time="50">
-					<text class="yticon icon-shouhoutuikuan"></text>
-					<text>退款/售后</text>
-				</view>
-			</view> -->
-			<!-- 浏览历史 -->
-			<view class="history-section icon">
-				<!-- <view class="sec-header">
-					<text class="yticon icon-lishijilu"></text>
-					<text>浏览历史</text>
-				</view>
-				<scroll-view scroll-x class="h-list">
-					<image @click="navTo('/pages/product/product')" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553105186633&di=c121a29beece4e14269948d990f9e720&imgtype=0&src=http%3A%2F%2Fimg004.hc360.cn%2Fm8%2FM04%2FDE%2FDE%2FwKhQplZ-QteEBvsbAAAAADUkobU751.jpg" mode="aspectFill"></image>
-					<image @click="navTo('/pages/product/product')" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553105231218&di=09534b9833b5243296630e6d5b728eff&imgtype=0&src=http%3A%2F%2Fimg002.hc360.cn%2Fm1%2FM05%2FD1%2FAC%2FwKhQcFQ3iN2EQTo8AAAAAHQU6_8355.jpg" mode="aspectFill"></image>
-					<image @click="navTo('/pages/product/product')" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553105320890&di=c743386be51f2c4c0fd4b75754d14f3c&imgtype=0&src=http%3A%2F%2Fimg007.hc360.cn%2Fhb%2FMTQ1OTg4ODY0MDA3Ny05OTQ4ODY1NDQ%3D.jpg" mode="aspectFill"></image>
-					<image @click="navTo('/pages/product/product')" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2691146630,2165926318&fm=26&gp=0.jpg" mode="aspectFill"></image>
-					<image @click="navTo('/pages/product/product')" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1553105443324&di=8141bf13f3f208c61524d67f9bb83942&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01ac9a5548d29b0000019ae98e6d98.jpg" mode="aspectFill"></image>
-					<image @click="navTo('/pages/product/product')" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=191678693,2701202375&fm=26&gp=0.jpg" mode="aspectFill"></image>
-				</scroll-view> -->
-				<list-cell icon="icon-iconfontweixin" iconColor="#e07472" title="我的钱包" tips="您的会员还有3天过期"></list-cell>
-				<list-cell icon="icon-dizhi" iconColor="#5fcda2" title="地址管理" @eventClick="navTo('/pages/address/address')"></list-cell>
-				<list-cell icon="icon-share" iconColor="#9789f7" title="分享" tips="邀请好友赢10万大礼"></list-cell>
-				<list-cell icon="icon-pinglun-copy" iconColor="#ee883b" title="晒单" tips="晒单抢红包"></list-cell>
-				<list-cell icon="icon-shoucang_xuanzhongzhuangtai" iconColor="#54b4ef" title="我的收藏"></list-cell>
-				<list-cell icon="icon-shezhi1" iconColor="#e07472" title="设置" border="" @eventClick="navTo('/pages/set/set')"></list-cell>
 			</view>
 		</view>
-			
-		
     </view>  
 </template>  
 <script>  
-	import listCell from '@/components/mix-list-cell';
-    import {  
-        mapState 
-    } from 'vuex';  
-	let startY = 0, moveY = 0, pageAtTop = true;
     export default {
 		components: {
-			listCell
 		},
 		data(){
 			return {
+				pic:'https://uviewui.com/common/logo.png',
+				show:true,
 				coverTransform: 'translateY(0px)',
 				coverTransition: '0s',
 				moving: false,
@@ -134,9 +102,9 @@
 			}
 		},
 		// #endif
-        computed: {
-			...mapState(['hasLogin','userInfo'])
-		},
+  //       computed: {
+		// 	...mapState(['hasLogin','userInfo'])
+		// },
         methods: {
 
 			/**
@@ -191,23 +159,197 @@
 				this.moving = false;
 				this.coverTransition = 'transform 0.3s cubic-bezier(.21,1.93,.53,.64)';
 				this.coverTransform = 'translateY(0px)';
+			},
+			//item组件按钮click方法回调
+			click(url){
+				uni.navigateTo({
+					url: url
+				})
 			}
         }  
     }  
 </script>  
 <style lang='scss'>
-	%flex-center {
-	 display:flex;
-	 flex-direction: column;
-	 justify-content: center;
-	 align-items: center;
+	.top{
+		height: 150px;
 	}
-	%section {
-	  display:flex;
-	  justify-content: space-around;
-	  align-content: center;
-	  background: #fff;
-	  border-radius: 10upx;
+	.reseller {
+		background-color: #F5F5F5;
+		min-height: 100vh;
+		font-size: 14px;
+	
+		.top {
+			color: #FFFFFF;
+			// display: flex;
+			// justify-content: space-between;
+			position: relative;
+			width: 100%;
+			height: 230px;
+			// background: #29b105; 
+			//linear-gradient(top, #4EC28E, #1C9C63);
+			.title {
+				background-color: #FFFFFF
+			}
+			.uni-flex {
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+			}
+			
+			.uni-column {
+				flex-direction: column;
+			}
+			
+			.flex-item {
+				width: 100%;
+				height: 200rpx;
+				text-align: center;
+				line-height: 200rpx;
+			}
+			
+			.flex-item-V {
+				width: 100%;
+				height: 150rpx;
+				text-align: center;
+				line-height: 150rpx;
+			}
+			
+			.middle-top{
+				width: 90%;
+				height: 48%;
+				margin-left: 5%;
+				background: #fff;
+				margin-top: -25%;
+				position: absolute;
+				border-radius: 5px;
+				.flex {
+					/* #ifndef APP-NVUE */
+					display: flex;
+					/* #endif */
+					flex-direction: row;
+					margin-left: 10%;
+				}
+				
+				.flex1{
+					/* #ifndef APP-NVUE */
+					display: flex;
+					height: 2%;
+					/* #endif */
+					flex-direction: row;
+					margin-left: 10%;
+				}
+				
+				.flex-bottom {
+					/* #ifndef APP-NVUE */
+					display: flex;
+					/* #endif */
+					flex-direction: row;
+					margin-left: 10%;
+				}
+				
+				
+				
+				.flex-sub {
+					width: calc(100% - 96upx - 60upx - 20upx);
+				}
+				
+				.top-text{
+					font-size: 40px;
+					color: #4B81FF;
+					font-weight: 500;
+				}
+				
+				.top-right{
+					margin: auto 0;
+					color: #FAAC17;
+					margin: auto 0 !important;
+				}
+				
+				.bg-grey {
+					background-color: #8799a3;
+					color: #ffffff;
+				}
+				
+				.padding-sm {
+					padding: 20upx;
+				}
+				
+				.margin-xs {
+					margin: 10upx;
+				}
+			}
+			
+			.middle-bottom{
+				width: 90%;
+				position: relative;
+				height: 55%;
+				color: #9B9B9B;
+				margin-left: 10%;
+				.bottom-text{
+					font-size: 30px;
+					margin-top: 10px;
+					margin-left: 10px
+				}
+			}
+	
+			.num {
+				font-size: 15px;
+				line-height: 25px;
+				text-align: center;
+				margin-top: 33%;
+				width: 33%;
+	
+			}
+		}
+	}
+	
+	.header{
+		float: left;
+		margin-left: 3%;
+	}
+
+	.bottom{
+		background: #ededed !important;
+	}
+	.headerText{
+		padding-top: 5%;
+	}
+	.BH-TOP {
+		background-color: #ededed;;
+		height: 5px;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+	.item{
+		border-bottom: 0.5px solid #ededed
+	}
+	.camera{
+		width: 54px;
+		height: 44px;
+		
+		&:active{
+			background-color: #ededed;
+		}
+	}
+	.head-text{
+		margin-top: 10%;
+		margin-left: 30%;
+		color: #FFFFFF;
+		
+		.name{
+			font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+			font-size: 18px;
+			font-family: auto;
+			font-weight: 500;
+			color: #333333
+		}
+		.address{
+			margin-top: 10px;
+			color: #BDBDBD;
+		}
+	}
+	.user-box{
+		background-color: #fff;
 	}
 
 	.user-section{
@@ -241,6 +383,13 @@
 			color: $font-color-dark;
 			margin-left: 20upx;
 		}
+	}
+	
+	.title-head {
+		font-size: 20px;
+		position: absolute;
+		left: 45%;
+		top: 20%;
 	}
 
 	.vip-card-box{
@@ -289,12 +438,18 @@
 			margin-top: 10upx;
 		}
 	}
+	
+	.top-img {
+		width: 100%;
+		height: 200px;
+		position: relative;
+	}
 	.cover-container{
 		background: $page-color-base;
 		margin-top: -150upx;
 		padding: 0 30upx;
 		position:relative;
-		background: #f5f5f5;
+		background: #ededed;
 		padding-bottom: 20upx;
 		.arc{
 			position:absolute;
@@ -302,73 +457,6 @@
 			top: -34upx;
 			width: 100%;
 			height: 36upx;
-		}
-	}
-	.tj-sction{
-		@extend %section;
-		.tj-item{
-			@extend %flex-center;
-			flex-direction: column;
-			height: 140upx;
-			font-size: $font-sm;
-			color: #75787d;
-		}
-		.num{
-			font-size: $font-lg;
-			color: $font-color-dark;
-			margin-bottom: 8upx;
-		}
-	}
-	.order-section{
-		@extend %section;
-		padding: 28upx 0;
-		margin-top: 20upx;
-		.order-item{
-			@extend %flex-center;
-			width: 120upx;
-			height: 120upx;
-			border-radius: 10upx;
-			font-size: $font-sm;
-			color: $font-color-dark;
-		}
-		.yticon{
-			font-size: 48upx;
-			margin-bottom: 18upx;
-			color: #fa436a;
-		}
-		.icon-shouhoutuikuan{
-			font-size:44upx;
-		}
-	}
-	.history-section{
-		padding: 30upx 0 0;
-		margin-top: 20upx;
-		background: #fff;
-		border-radius:10upx;
-		.sec-header{
-			display:flex;
-			align-items: center;
-			font-size: $font-base;
-			color: $font-color-dark;
-			line-height: 40upx;
-			margin-left: 30upx;
-			.yticon{
-				font-size: 44upx;
-				color: #5eba8f;
-				margin-right: 16upx;
-				line-height: 40upx;
-			}
-		}
-		.h-list{
-			white-space: nowrap;
-			padding: 30upx 30upx 0;
-			image{
-				display:inline-block;
-				width: 160upx;
-				height: 160upx;
-				margin-right: 20upx;
-				border-radius: 10upx;
-			}
 		}
 	}
 	

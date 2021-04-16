@@ -1,8 +1,9 @@
 <template>
 	<view class="agent">
-		<view class="head">
+		<cu-custom bgColor="bg-gradual-blue" :isBack="true"><block slot="content">智慧餐厅</block></cu-custom>
+		<!-- <view class="head">
 			共 <span>10000</span> 人
-		</view>
+		</view> -->
 		<view class="t_tou">
 			<view class="tou_1">微信头像</view>
 			<view class="tou_1">微信昵称</view>
@@ -32,7 +33,7 @@
 
 <style lang="less">
 .agent{
-	.head{background-color: #E0451D;color: #fff;text-align: center;padding: 40px 10px 30px;}
+	.head{background-color: #E0451D;color: #fff; margin-top: 45px; text-align: center;padding: 40px 10px 30px;}
 	.head span{font-size: 30px;padding: 0 5px;}
 	.t_tou{display: flex;padding: 10px;height: 30px;line-height: 30px;margin-bottom: 10px;}
 	.tou_1{width: 34%;text-align: center;}

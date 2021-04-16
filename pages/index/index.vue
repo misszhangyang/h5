@@ -1,9 +1,37 @@
 <template>
 	<view class="index">
 		<view class="head">
-			 <view class="tit">{{shop.shop_name}}</view> 
-			<view class="jiu">
-				<view class="jiu_01" @click="shao()">
+			<image class="top-img"src="../../imgs/reseller.png"></image>
+			<view>
+				<view class="middle-top">
+					<view class="uni-flex uni-column">
+						<view  style="width: 100%;height:35%;margin: 0 auto;">
+							 <view class="title-head">
+								订 单
+							 </view>
+						 </view>
+					</view>
+					<view class="jiu_01" style="position: absolute;" @click="shao()">
+						<view><img src="../../imgs/1.png"/></view>
+						<view>扫码验证</view>
+					</view>
+					<view class="jiu_01" style="position: absolute; margin-left: 35%;">					
+						<navigator url="/pages/edit/yanzheng/yanzheng">
+							<view><img src="../../imgs/2.png" /></view>
+							<view>输码验证</view>
+						</navigator>
+					</view>
+					<view class="jiu_01 " style="position: absolute; margin-left: 70%;">
+						<navigator url="/pages/user/mingxi/mingxi"> 
+						<view><img src="../../imgs/3.png" /></view>
+						<view>财务结算</view>
+						</navigator>
+					</view>
+				</view>
+			</view>
+			 <!-- <view class="tit">{{shop.shop_name}}</view> -->
+			<!-- <view class="jiu"> -->
+				<!-- <view class="jiu_01" @click="shao()">
 					<view><img src="../../imgs/1.png"/></view>
 					<view>扫码验证</view>
 				</view>
@@ -18,8 +46,8 @@
 					<view><img src="../../imgs/3.png" /></view>
 					<view>财务结算</view>
 					</navigator>
-				</view>
-			</view>
+				</view> -->
+			<!-- </view> -->
 		</view>
 		<view class="more">
 			<view class='mo'>
@@ -132,7 +160,7 @@
 			</view>
 		<!-- 弹窗 -->
 		<view v-if="tancl">
-			<Tan @close_add="tan"></Tan>
+			<!-- <Tan @close_add="tan"></Tan> -->
 		</view>
 	</view>
 </template>
@@ -140,7 +168,6 @@
 <script>
 	import uniBadge from "@/components/uni/uni-badge/uni-badge.vue"
 	import uniIcon from "@/components/uni/uni-icon/uni-icon.vue"
-	import Tan from "@/components/qy/Tan.vue"
 	export default {
 		data() {
 			return {
@@ -151,7 +178,6 @@
 		components: {
 			uniIcon,
 			uniBadge,
-			Tan
 		},
 		onLoad() {  
 			this._load()
@@ -188,16 +214,103 @@
 <style lang="scss">
 	.index {
 		background:#fff;
-		.H50{
-			height:50px;
-		}
+		// .H50{
+		// 	height:50px;
+		// }
 		.head {
-			background:  #29b105;
+			// background:  #29b105;
 			// linear-gradient(to bottom, #52c693, #27a26c);
 			text-align: center;
-			padding: 20px 0 10px;
+			// padding: 20px 0 10px;
 			color: #fff;
 			font-size: 14px;
+			
+			.uni-flex {
+				width: 100%;
+				display: flex;
+				flex-direction: row;
+			}
+			
+			.uni-column {
+				flex-direction: column;
+			}
+			
+			.title-head {
+				font-size: 20px;
+				position: relative;
+				margin-bottom: 5%;
+			}
+			
+			.middle-top{
+				width: 90%;
+				height: 10%;
+				margin-left: 5%;
+				// background: #fff;
+				margin-top: -40%;
+				position: absolute;
+				border-radius: 5px;
+				.flex {
+					/* #ifndef APP-NVUE */
+					display: flex;
+					/* #endif */
+					flex-direction: row;
+					margin-left: 10%;
+				}
+				
+				.flex1{
+					/* #ifndef APP-NVUE */
+					display: flex;
+					height: 2%;
+					/* #endif */
+					flex-direction: row;
+					margin-left: 10%;
+				}
+				
+				.flex-bottom {
+					/* #ifndef APP-NVUE */
+					display: flex;
+					/* #endif */
+					flex-direction: row;
+					margin-left: 10%;
+				}
+				
+				
+				
+				.flex-sub {
+					width: calc(100% - 96upx - 60upx - 20upx);
+				}
+				
+				.top-text{
+					font-size: 40px;
+					color: #4B81FF;
+					font-weight: 500;
+				}
+				
+				.top-right{
+					margin: auto 0;
+					color: #FAAC17;
+					margin: auto 0 !important;
+				}
+				
+				.bg-grey {
+					background-color: #8799a3;
+					color: #ffffff;
+				}
+				
+				.padding-sm {
+					padding: 20upx;
+				}
+				
+				.margin-xs {
+					margin: 10upx;
+				}
+			}
+		}
+		
+		.top-img {
+			width: 100%;
+			height: 200px;
+			// position: absolute;
 		}
 
 		.jiu {

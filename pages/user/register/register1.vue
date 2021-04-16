@@ -5,7 +5,7 @@
 		<view class="right-top-sign"></view>
 		<!-- 设置白色背景防止软键盘把下部绝对定位元素顶上来盖住输入框等 -->
 		<view class="wrapper">
-			<view class="left-top-sign">FORGET</view>
+			<view class="left-top-sign">REGISTER</view>
 			<view class="welcome">
 				在线预约
 			</view>
@@ -29,7 +29,6 @@
 					<input 
 						type="number" 
 						:value="mobile" 
-						placeholder="请输入姓名"
 						maxlength="11"
 						data-key="mobile"
 						@input="inputChange"
@@ -37,19 +36,16 @@
 				</view>
 				<view class="input-item">
 					<text class="tit">地址<span style="color: red;">*</span></text>
-					<address-picker  @change="change">{{address}}</address-picker>
+					<address-picker  class="addressPicker"  @change="change">{{address}}</address-picker>
 					<!-- <input class="address-input"><address-picker  @change="change">{{address}}</address-picker></input> -->
 				</view>
 				<view class="input-item">
-					<text class="tit">详细地址<span style="color: red;">*</span></text>
+					<text class="tit">店铺地址<span style="color: red;">*</span></text>
 					<input 
 						type="mobile" 
 						value="" 
 						placeholder-class="input-empty"
 						maxlength="20"
-						password 
-						placeholder="请输入详细地址"
-						data-key="password"
 						@input="inputChange"
 						@confirm="toLogin"
 						style="width: 100%;"
@@ -62,9 +58,6 @@
 						value="" 
 						placeholder-class="input-empty"
 						maxlength="20"
-						password 
-						placeholder="请输入详细地址"
-						data-key="password"
 						@input="inputChange"
 						@confirm="toLogin"
 						style="width: 100%;"
@@ -77,8 +70,6 @@
 						value="" 
 						placeholder-class="input-empty"
 						maxlength="20"
-						password 
-						data-key="password"
 						@input="inputChange"
 						@confirm="toLogin"
 						style="width: 100%;"
@@ -120,7 +111,7 @@ import {
 				uni.navigateBack();
 			},
 			toReset(){
-				this.$api.msg('去重置');
+				this.$api.msg('预约成功');
 			},
 			toForget(){
 				// this.$api.msg('去忘记密码页面');
@@ -303,6 +294,17 @@ page{
 		font-size: $font-base + 2upx;
 		color: $font-color-dark;
 		width: 100%;
+	}
+	
+	.addressPicker{
+		width: 100%;
+		background: rgb(232, 240, 254);
+		height: 26px;
+		/* margin-top: 50%; */
+		vertical-align: middle;
+		inline-height: 100%;
+		/* margin-top: 5px; */
+		padding: 10px 0;
 	}
 	
 	.check-btn{

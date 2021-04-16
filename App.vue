@@ -17,6 +17,9 @@
     @import "colorui/main.css";
     @import "colorui/icon.css";
     @import "./common/uni.css";
+	/* @import "uview-ui/index.scss"; */
+    /* @import 'uview-ui/theme.scss'; */
+   
 	
 	@font-face {
 		font-family: yticon;

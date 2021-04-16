@@ -5,12 +5,27 @@ import './assets/style/border.css'
 import './assets/style/main.css'
 import $ from './assets/style/jquery.js'
 import http from './common/axios.js'  
-import json from './json2' //测试用数据
-import cuCustom from './colorui/components/cu-custom.vue'  //菜单栏头部组件
-import addressPicker from './colorui/components/address-picker.vue'  //地址选择组件
+import uView from 'uview-ui';
+Vue.use(uView);
 
-Vue.component('cu-custom',cuCustom)
-Vue.component('address-picker',addressPicker)
+
+import json from './json2' //测试用数据
+// import cuCustom from './colorui/components/col-custom.vue'  //菜单栏头部组件
+// import addressPicker from './colorui/components/col-address-picker.vue'  //地址选择组件
+import uniSearchBar from './components/uni-searchbar/uni-searchbar'  //搜素框组件
+import uniSentedControl from './components/uni/uni-segmented-control/uni-segmented-control.vue' //分段框选择器组件
+import uniSection from './components/uni/uni-section/uni-section.vue' //列表选择组件
+
+
+
+// Vue.component('cu-custom',cuCustom)
+// Vue.component('address-picker',addressPicker)
+Vue.component('uni-search-bar',uniSearchBar)
+Vue.component('uni-segmented-control',uniSentedControl)
+Vue.component('uni-section',uniSection)
+
+
+
 
 Vue.use(Vuex)
 
@@ -43,7 +58,6 @@ const store = new Vuex.Store({
 	},
 	mutations: {
 		login(state, provider) {
-
 			state.hasLogin = true;
 			state.userInfo = provider;
 			uni.setStorage({//缓存用户登陆状态

@@ -1,4 +1,7 @@
 {
+	"easycom": {
+		"^u-(.*)": "@/uview-ui/components/u-$1/u-$1.vue"
+	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 		    "path" : "pages/login/login",
@@ -26,20 +29,9 @@
             "path" : "pages/notice/notice",
             "style" : {}
         }
-       ,{
-		    "path" : "pages/kedetail/kedetail",
-		    "style" : {}
-		},
+        ,
 		{
 		    "path" : "pages/kehu/kehu",
-		    "style" : {}
-		},
-		{
-		    "path" : "pages/couponxuan/couponxuan",
-		    "style" : {}
-		},
-		{
-		    "path" : "pages/couponlist/couponlist",
 		    "style" : {}
 		},
 		{
@@ -56,7 +48,9 @@
         }
         ,{
             "path" : "pages/user/agent/agent",
-            "style" : {}
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
         }
         ,{
             "path" : "pages/user/fenxiao/fenxiao",
@@ -157,18 +151,6 @@
             "style" : {}
         }
         ,{
-            "path" : "pages/certification/one/one",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/certification/two/two",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/certification/three/three",
-            "style" : {}
-        }
-        ,{
             "path" : "pages/templace/templace",
             "style" : {}
         }
@@ -206,14 +188,6 @@
         }
         ,{
             "path" : "pages/kehu/tag_manage/tag_manage",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/couponlist/coupon/coupon",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/couponlist/couponvip/couponvip",
             "style" : {}
         }
         ,{
@@ -265,10 +239,35 @@
             "path" : "pages/user/reseller/reseller",
             "style" : {
 				"navigationBarTitleText": "",
+				// #ifdef MP
 				"navigationStyle": "custom",
+				// #endif
 				"app-plus": {
-					"titleNView": false,
-					"animationType": "slide-in-bottom"
+					"bounce": "none",
+					"titleNView": {
+						"type": "transparent"
+						// "buttons": [{
+								// "fontSrc": "/static/yticon.ttf",
+								// "text": "\ue60f",
+								// "fontSize": "24",
+								// "color": "#303133",
+								// "width": "46px",
+								// "background": "rgba(0,0,0,0)"
+								// "text": "\ue534",
+								// "fontSrc": "/static/yticon.ttf",
+								// "fontSize": "22px",
+								// "color": "#FFFFFF"
+							// },
+							// {
+								// "fontSrc": "/static/yticon.ttf",
+								// "text": "\ue744",
+								// "fontSize": "28",
+								// "color": "#303133",
+								// "background": "rgba(0,0,0,0)",
+								// "redDot": true
+							// }
+						// ]
+					}
 				}
 			}
         }
@@ -277,10 +276,6 @@
             "style" : {
 				// "app-plus":{"titleNView": false}
 			}
-        }
-        ,{
-            "path" : "components/cu-custom/cu-custom",
-            "style" : {}
         }
         ,{
             "path" : "pages/user/register/register",
@@ -294,8 +289,187 @@
 			}
         }
         ,{
-            "path" : "components/address-picker/address-picker",
+            "path" : "pages/user/qrcode/qrcode",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/loan/loan",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/manage/manage",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/refundApply/refundApply",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "components/uni-searchbar/uni-searchbar",
             "style" : {}
+        }
+        ,{
+            "path" : "pages/user/market/market",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        },
+		{
+		    "path" : "pages/user/market/cardroll",
+		    "style" : {
+				"app-plus":{"titleNView": false}
+			}
+		}
+        ,{
+            "path" : "pages/user/market/discount",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/market/full-reduction",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/member/member",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/staffManage/staffManage",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/staffManage/addSatff",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/shopStore/shopStore",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/shopStore/editStore",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/busAnalsis/transAnalysis",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        
+        ,{
+            "path" : "pages/user/busAnalsis/cusAnalysis",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/busAnalsis/sourceAnalysis",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/busAnalsis/busReport",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/busAnalsis/staffData",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/busAnalsis/busAnalysis",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/busAnalsis/timeManage",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/busAnalsis/uchart-demo",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/busAnalsis/staffList",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/accrecord/accrecord",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/accrecord/selRecord",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/cloudSpeaker/cloudSpeaker",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/cloudSpeaker/cloudBind",
+            "style" : {"app-plus":{"titleNView": false}}
+        }
+        ,{
+            "path" : "pages/user/password/password",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/password/returnPassword",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/password/editReturnPassword",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
+        }
+        ,{
+            "path" : "pages/user/password/forgetReturnPassword",
+            "style" : {
+				"app-plus":{"titleNView": false}
+			}
         }
     ],
 	"globalStyle": {
@@ -306,27 +480,27 @@
 	},
 	"tabBar": {
 		"color": "#C0C4CC",
-		"selectedColor": "#fa436a",
+		"selectedColor": "#528AF5",
 		"borderStyle": "black",
 		"backgroundColor": "#ffffff",		
 		"list": [
 			{
 				"pagePath": "pages/user/reseller/reseller",
-				"iconPath": "static/tab-my.png",
-				"selectedIconPath": "static/tab-my-current.png",
+				"iconPath": "static/tab-home.png",
+				"selectedIconPath": "static/tab-home-selected.png",
 				"text": "首页"
 			}
 			,
 			{
 				"pagePath": "pages/index/index",
-				"iconPath": "static/tab-home.png",
-				"selectedIconPath": "static/tab-home-current.png",
+				"iconPath": "static/tab-order.png",
+				"selectedIconPath": "static/order_ selected.png",
 				"text": "订单"
 			},
 			{
 				"pagePath": "pages/user/mine/mine",
 				"iconPath": "static/tab-my.png",
-				"selectedIconPath": "static/tab-my-current.png",
+				"selectedIconPath": "static/my_ selected.png",
 				"text": "我的"
 			}
 			
